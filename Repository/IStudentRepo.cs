@@ -24,17 +24,16 @@ namespace First_MVC_App.Repository
             db.SaveChanges();
         }
 
-        public void DeleteByID(int id)
-        {
-            var stu = db.Students.FirstOrDefault(a => a.Id == id);
-            stu.StuStatus = true;
-            //db.Remove(stu);
-            db.SaveChanges();
-        }
 
         public List<Student> GetAll()
         {
             return db.Students.Where(a => a.StuStatus == false).ToList();
+        }
+        public void DeleteByID(int id)
+        {
+            var stu = GetById(id);
+            stu.StuStatus = true;
+            db.SaveChanges();
         }
 
         public Student GetById(int id)

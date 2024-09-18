@@ -68,9 +68,9 @@ namespace First_MVC_App.Controllers
             return View (student);
         }
         [HttpPost]
-        public IActionResult DeleteConfirmed(int CourseId)
+        public IActionResult DeleteConfirmed(int Id)
         {
-            studentRepo.DeleteByID(CourseId);
+            studentRepo.DeleteByID(Id);
             return RedirectToAction("Index");
         }
 
