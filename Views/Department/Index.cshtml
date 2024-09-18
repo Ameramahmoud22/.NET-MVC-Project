@@ -1,0 +1,52 @@
+﻿@model List<Department>
+@{
+    ViewBag.Title = "Departments";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/global.css" rel="stylesheet" />
+</head>
+<body>
+    <a href="/department/create" type="button" class="btn mb-4 create__btn">Create Department</a>
+    <table class="table table-hover table-responsive table-bordered">
+        <thead class="text-center">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @if (Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="4">No Departments</td>
+                </tr>
+            }
+            else
+            {
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.DeptId</td>
+                        <td>@item.DeptName</td>
+                        <td>@item.Capacity</td>
+                        <td>
+                            <a asp-action="details" asp-controller="department" asp-route-id="@item.DeptId" class="btn btn-primary">Details</a>
+                            <a asp-action="edit" asp-controller="department" asp-route-id="@item.DeptId" class="btn btn-info">Edit</a>
+                            <a asp-action="delete" asp-controller="department" asp-route-id="@item.DeptId" class="btn btn-danger">Delete</a>
+                            <a asp-action="delete" asp-controller="department" asp-route-id="@item.DeptId" onclick="return confirm('Are u sure?')" class="btn btn-danger">Confirmed Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>

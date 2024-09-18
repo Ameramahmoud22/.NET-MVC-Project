@@ -1,0 +1,24 @@
+﻿@model First_MVC_App.Models.Course
+@{
+    ViewBag.Title = "Delete Course";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/global.css" rel="stylesheet" />
+</head>
+<body>
+    <p>Are you sure you want to delete Course: @Model.CourseName?</p>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        
+        <input asp-for="CourseId" type="hidden" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a href="@Url.Action("Index", "Course")" class="btn btn-secondary">Cancel</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model DetailsViewModels
+@{
+    ViewBag.Title = "Course Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/global.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Course
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID : @Model.Course.CourseId</li>
+                <li class="list-group-item">Name : @Model.Course.CourseName</li>
+                <li class="list-group-item">Duration : @Model.Course.Duration + "Hours"</li>
+                <li class="list-group-item">Department Number : @Model.Course.DeptNo</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

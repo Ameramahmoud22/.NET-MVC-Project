@@ -1,0 +1,23 @@
+﻿@model Department
+@{
+    ViewBag.Title = "Delete Department";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/global.css" rel="stylesheet" />
+</head>
+<body>
+    <p>Are you sure you wamt to delete department : @Model.DeptName?</p>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input asp-for="DeptId" type="hidden" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
+</body>
+</html>

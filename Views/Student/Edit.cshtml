@@ -1,0 +1,51 @@
+﻿@model Student
+@{
+    ViewBag.Title = "Edit Student";
+    SelectList departments = new SelectList(ViewBag.depts, "DeptId", "DeptName");
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Student</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/global.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Edit Student</h1>
+
+    <form asp-action="Edit" method="post" class="p-4 border rounded shadow-sm">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Password" />
+
+        <div class="form-group mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Age"></label>
+            <input asp-for="Age" class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group mb-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="DeptNo">Department</label>
+            <select asp-for="DeptNo" class="form-control" asp-items="departments"></select>
+            <span asp-validation-for="DeptNo" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary w-100 mb-3">Save Changes</button>
+        <a asp-action="Index" class="btn btn-secondary w-100">Cancel</a>
+    </form>
+</body>
+</html>

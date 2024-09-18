@@ -1,0 +1,40 @@
+﻿@model Course
+@{
+    ViewBag.Title = "Create Course";
+    SelectList deptsl = new SelectList(ViewBag.depts, "DeptId", "DeptName");
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowCreate</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/global.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Course</h1>
+        <form asp-action="create" method="post" class="p-4 border rounded shadow-sm">
+
+        <input type="hidden" asp-for="CourseId" class="form-control">
+        <div class="mb-3">
+            <label asp-for="CourseName" class="form-label">Course Name</label>
+            <input asp-for="CourseName" class="form-control">
+            <span asp-validation-for="CourseName" class="text-danger"></Span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Duration" class="form-label">Duration</label>
+            <input asp-for="Duration" class="form-control">
+            <span asp-validation-for="Duration" class="text-danger"></Span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DeptNo" class="form-label">Department Name</label>
+            <select asp-for="DeptNo" asp-items="deptsl" class="form-select">
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Add Course</button>
+    </form>
+</body>
+</html>

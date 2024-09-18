@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" />
+</head>
+<body>
+    <div class="layout-container">
+        <header>
+            <nav class="">
+                <div class="navbar__container">
+                    <a class="nav__logo" asp-controller="Home" asp-action="Index">
+                        <svg width="800px" height="800px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z" fill="#000000" />
+                        </svg>
+                        <span>Amera Mahmoud</span>
+                    </a>
+                    <div class="list__container">
+                        <ul class="nav__list"
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Home" asp-action="Index"></a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Department" asp-action="Index">Department</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Student" asp-action="Index">Student</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Course" asp-action="Index">Course</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__container">
+                        &copy; Developed by <a href="https://www.linkedin.com/in/amera-elbassal-50b984272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">Amera Mahmoud</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

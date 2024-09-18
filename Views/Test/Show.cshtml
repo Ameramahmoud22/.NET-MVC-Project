@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+    int x = 10;
+    int age = 60;
+    string[] names = ["amera", "ahmed", "reem", "noran"];
+    Department dept = new Department() { DeptId = 10, DeptName = "Embeded system", Capacity = 66 };
+    List<Department> depts =
+    [
+        new Department(){DeptId=1,DeptName="sd",Capacity=50},
+        new Department(){DeptId=2,DeptName="es",Capacity=40},
+        new Department(){DeptId=3,DeptName="el",Capacity=30}
+    ];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Capacity</th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @if(depts.Count==0)
+            {
+                <td colspan="3">No depts Found </td>
+            }else{
+            @foreach (var item in depts)
+            {
+                <tr>
+
+                    <td>@item.DeptId</td>
+                    <td>@item.DeptName</td>
+                    <td>@item.Capacity</td>
+
+                </tr>
+            }
+            }
+        </tbody>
+
+    </table>
+    
+</body>
+</html>
+
+    
+

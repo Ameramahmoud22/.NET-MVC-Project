@@ -1,0 +1,64 @@
+﻿@model Student
+@{
+    ViewBag.Title = "Create Student";
+    SelectList deptsl = new SelectList(ViewBag.depts, "DeptId", "DeptName");
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create Student</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/global.css" rel="stylesheet" />
+</head>
+<body >
+    <h1>Create Student</h1>
+
+    <form action="/student/create" method="post" class="p-4 border rounded shadow-sm">
+       
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Student Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></Span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Age" class="form-label">Student Age</label>
+            <input asp-for="Age" class="form-control">
+            <span asp-validation-for="Age" class="text-danger"></Span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Student Email</label>
+            <input asp-for="Email" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></Span>
+        </div>
+        
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Password</label>
+            <input asp-for="Password" class="form-control">
+            <span asp-validation-for="Password" class="text-danger"></Span>
+        </div>
+        
+        <div class="mb-3">
+            <label asp-for="CPassword" class="form-label">Confirm Password</label>
+            <input asp-for="CPassword" class="form-control">
+            <span asp-validation-for="CPassword" class="text-danger"></Span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DeptNo" class="form-label">Department Name</label>
+            <select asp-for="DeptNo" asp-items="deptsl" class="form-select">
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Create Student</button>
+    </form>
+    
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+</body>
+</html>
